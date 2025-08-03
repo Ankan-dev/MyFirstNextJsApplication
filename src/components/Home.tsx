@@ -222,7 +222,7 @@ const Home = () => {
                 initial={false}
               />
               <span className="relative z-10 flex items-center gap-2">
-                Let's Build Together
+                Let&apos;s Build Together
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </span>
             </motion.button>
@@ -241,7 +241,7 @@ const Home = () => {
             transition={{ delay: 0.8, duration: 0.6 }}
             className="text-sm text-gray-500 mt-6"
           >
-            🚀 Early bird pricing available • Free consultation • Let's grow together
+            🚀 Early bird pricing available • Free consultation • Let&apos;s grow together
           </motion.p>
         </div>
       </section>
@@ -501,8 +501,8 @@ const Home = () => {
               </h2>
               
               <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Let's discuss your project and build something incredible together. 
-                Whether you need AI integration or a complete solution, we're excited to help.
+                Let&apos;s discuss your project and build something incredible together. 
+                Whether you need AI integration or a complete solution, we&apos;re excited to help.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
