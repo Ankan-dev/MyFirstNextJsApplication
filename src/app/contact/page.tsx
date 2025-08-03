@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { 
   Mail, 
   Phone, 
-  MapPin, 
+
   Send, 
   Calendar,
   Clock,
@@ -128,7 +128,7 @@ const ContactPage = () => {
               variants={fadeInUp}
               className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
             >
-              Let's Start a{' '}
+              Let&apos;s Start a{' '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Conversation
               </span>
@@ -382,7 +382,7 @@ const ContactPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Let's Connect Virtually
+              Let&apos;s Connect Virtually
             </h2>
             <p className="text-gray-600 dark:text-gray-300">
               We&apos;re a remote-first team ready to collaborate with you anywhere

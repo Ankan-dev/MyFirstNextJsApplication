@@ -10,8 +10,6 @@ import {
   Zap, 
   Users, 
   Target, 
-  Star,
-  Quote,
   TrendingUp,
   Award,
   Lightbulb,
@@ -231,7 +229,7 @@ const About = () => {
               
               <p>
                 What drives us is the belief that every business deserves access to cutting-edge technology, regardless of size or budget. 
-                We're not just developers – we&apos;re digital transformation partners who understand that behind every line of code is a 
+                We&apos;re not just developers – we&apos;re digital transformation partners who understand that behind every line of code is a 
                 business goal, a user need, and a dream waiting to be realized.
               </p>
               
@@ -358,7 +356,7 @@ const About = () => {
 
               <p>
                 <span className="text-purple-400 font-semibold">For businesses seeking growth,</span> we develop custom web applications that streamline operations, 
-                enhance customer engagement, and drive revenue. Our modern, responsive websites don't just look beautiful – they&apos;re built with performance, 
+                enhance customer engagement, and drive revenue. Our modern, responsive websites don&apos;t just look beautiful – they&apos;re built with performance, 
                 SEO optimization, and user experience at their core, ensuring your online presence converts visitors into loyal customers.
               </p>
 

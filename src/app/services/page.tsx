@@ -10,7 +10,6 @@ import {
   Palette, 
   Target, 
   Headphones,
-  CheckCircle,
   ArrowRight,
   Lightbulb,
   Map,

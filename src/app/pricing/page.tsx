@@ -9,10 +9,7 @@ import {
   Cloud,
   CheckCircle,
   ArrowRight,
-  Zap,
-  Code,
-  Palette,
-  Database
+  Zap
 } from 'lucide-react';
 
 const PricingPage = () => {
