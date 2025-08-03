@@ -138,7 +138,7 @@ const ContactPage = () => {
               variants={fadeInUp}
               className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10"
             >
-              Ready to transform your ideas into reality? We'd love to hear about your project 
+              Ready to transform your ideas into reality? We&apos;d love to hear about your project 
               and discuss how we can help you achieve your goals.
             </motion.p>
 
@@ -172,7 +172,7 @@ const ContactPage = () => {
                   Send us a Message
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Fill out the form below and we'll get back to you within 24 hours.
+                  Fill out the form below and we&apos;ll get back to you within 24 hours.
                 </p>
               </div>
 
@@ -299,7 +299,7 @@ const ContactPage = () => {
                   Get in Touch
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 text-lg">
-                  We're here to help and answer any question you might have. 
+                  We&apos;re here to help and answer any question you might have. 
                   We look forward to hearing from you.
                 </p>
               </div>
@@ -385,7 +385,7 @@ const ContactPage = () => {
               Let's Connect Virtually
             </h2>
             <p className="text-gray-600 dark:text-gray-300">
-              We're a remote-first team ready to collaborate with you anywhere
+              We&apos;re a remote-first team ready to collaborate with you anywhere
             </p>
           </div>
           

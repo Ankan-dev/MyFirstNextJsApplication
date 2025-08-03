@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Code, Zap, Brain, ArrowRight } from 'lucide-react';
+import { Menu, X, Code, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const NavBar = () => {

@@ -260,7 +260,7 @@ const PricingPage = () => {
               Ready to Transform Your Business?
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-              Let's discuss your project requirements and create a custom solution that drives results.
+              Let&apos;s discuss your project requirements and create a custom solution that drives results.
             </p>
             <motion.button
               whileHover={{ 

@@ -173,7 +173,7 @@ const About = () => {
                 Innovating
               </span>
               <br />
-              <span className="text-white">Tomorrow's Solutions</span>
+              <span className="text-white">Tomorrow&apos;s Solutions</span>
             </h1>
           </motion.div>
 
@@ -231,7 +231,7 @@ const About = () => {
               
               <p>
                 What drives us is the belief that every business deserves access to cutting-edge technology, regardless of size or budget. 
-                We're not just developers – we're digital transformation partners who understand that behind every line of code is a 
+                We're not just developers – we&apos;re digital transformation partners who understand that behind every line of code is a 
                 business goal, a user need, and a dream waiting to be realized.
               </p>
               
@@ -351,14 +351,14 @@ const About = () => {
               className="space-y-8 text-lg text-gray-300 leading-relaxed order-1 lg:order-2"
             >
               <p>
-                Whether you're a startup with a groundbreaking idea, an established business looking to modernize, or an entrepreneur ready to disrupt your industry, 
+                Whether you&apos;re a startup with a groundbreaking idea, an established business looking to modernize, or an entrepreneur ready to disrupt your industry, 
                 <span className="text-cyan-400 font-semibold"> we provide end-to-end digital transformation services</span> that turn your vision into reality. 
                 Our expertise spans the entire development lifecycle, from initial concept and design to deployment and ongoing support.
               </p>
 
               <p>
                 <span className="text-purple-400 font-semibold">For businesses seeking growth,</span> we develop custom web applications that streamline operations, 
-                enhance customer engagement, and drive revenue. Our modern, responsive websites don't just look beautiful – they're built with performance, 
+                enhance customer engagement, and drive revenue. Our modern, responsive websites don't just look beautiful – they&apos;re built with performance, 
                 SEO optimization, and user experience at their core, ensuring your online presence converts visitors into loyal customers.
               </p>
 
@@ -641,7 +641,7 @@ const About = () => {
               
               <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
                 Join us on our journey to transform businesses with AI-powered solutions. 
-                Let's create something extraordinary together.
+                Let&apos;s create something extraordinary together.
               </p>
               
               <motion.button

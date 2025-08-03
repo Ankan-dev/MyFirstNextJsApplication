@@ -309,7 +309,7 @@ const ServicesPage = () => {
               </span>
             </h3>
             <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              Let's discuss your project and see how we can bring your vision to life with our expert development and design services.
+              Let&apos;s discuss your project and see how we can bring your vision to life with our expert development and design services.
             </p>
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px -12px rgba(168, 85, 247, 0.4)" }}
