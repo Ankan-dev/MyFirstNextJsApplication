@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code, Zap, Users, Star, Globe, Rocket, Shield, CheckCircle, TrendingUp, Award, Clock, Target, Lightbulb, Brain, Smartphone, Briefcase } from 'lucide-react';
+import { ArrowRight, Code,  Rocket, Shield, CheckCircle, Award, Clock, Target,  Brain, Smartphone, Briefcase } from 'lucide-react';
 
 const Home = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -171,7 +171,7 @@ const Home = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed"
           >
-            We're a new software development agency ready to bring your ideas to life with 
+            We&apos;re a new software development agency ready to bring your ideas to life with 
             <span className="text-blue-400 font-semibold"> AI-powered solutions</span> and modern technology.
           </motion.p>
 
