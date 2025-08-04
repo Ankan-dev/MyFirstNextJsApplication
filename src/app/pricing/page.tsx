@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Monitor, 
   Smartphone, 
@@ -9,10 +9,65 @@ import {
   Cloud,
   CheckCircle,
   ArrowRight,
-  Zap
+  Zap,
+  ChevronDown,
+  HelpCircle
 } from 'lucide-react';
 
 const PricingPage = () => {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  // Add smooth scrolling to the document
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
+  const faqs = [
+    {
+      question: "How does your pricing work?",
+      answer: "We offer flexible, pay-as-you-go pricing based on your specific requirements. Whether you need a simple website or a full-scale SaaS platform, we'll tailor a quote that matches your scope and budget. Just contact us for your custom pricing."
+    },
+    {
+      question: "Do you have fixed packages or rates?",
+      answer: "No fixed rates. Every project is different, so we don't believe in one-size-fits-all pricing. We assess your goals, timeline, and features before giving you the best price possible."
+    },
+    {
+      question: "Is the consultation free?",
+      answer: "Absolutely. Our initial consultation is 100% free and comes with no obligations. We'll understand your needs and guide you on the next best steps."
+    },
+    {
+      question: "What technologies do you use?",
+      answer: "We work with modern, scalable technologies including React, Next.js, Node.js, MongoDB, WordPress, Shopify, Flutter, and OpenAI/Gemini APIs — depending on your project."
+    },
+    {
+      question: "How long will my project take?",
+      answer: "Project timelines vary based on complexity, but we'll provide a detailed estimate during our initial discussion. Timely delivery is always a priority."
+    },
+    {
+      question: "Can you update or improve an existing application?",
+      answer: "Yes. Whether it's redesigning your website, refactoring your code, or integrating AI into your existing app — we've got you covered."
+    },
+    {
+      question: "What if I only need help with part of the project?",
+      answer: "No problem! You can hire us for full projects or just specific parts — like frontend development, API integration, or CMS setup."
+    },
+    {
+      question: "Do you provide support and maintenance after launch?",
+      answer: "Yes. We offer ongoing support and maintenance plans to ensure your application remains secure, up-to-date, and high-performing."
+    },
+    {
+      question: "Can I scale up later if my needs grow?",
+      answer: "Definitely. We design with scalability in mind — whether it's your website, mobile app, or SaaS platform. You can start small and grow at your pace."
+    },
+    {
+      question: "How do I get started?",
+      answer: "Just head over to our Contact Us page and tell us a bit about your project. We'll schedule a call, understand your needs, and send over a customized quote — no pressure."
+    }
+  ];
+
   const services = [
     {
       id: 'website',
@@ -85,8 +140,9 @@ const PricingPage = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        duration: 0.8
+        staggerChildren: 0.15,
+        duration: 0.6,
+        ease: "easeOut"
       }
     }
   };
@@ -94,37 +150,64 @@ const PricingPage = () => {
   const cardVariants = {
     hidden: { 
       opacity: 0, 
-      y: 50,
-      scale: 0.9
+      y: 30,
+      scale: 0.95
     },
     visible: { 
       opacity: 1, 
       y: 0,
-      scale: 1
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 py-20 px-6">
-      {/* Background Effects */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950 pt-32 pb-20 px-6" style={{ scrollBehavior: 'smooth' }}>
+      {/* Background Effects - Optimized */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-purple-500/5 to-cyan-500/5 rounded-full blur-3xl" />
+        <motion.div 
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/8 rounded-full blur-2xl"
+          animate={{ 
+            scale: [1, 1.1, 1],
+            opacity: [0.8, 1, 0.8]
+          }}
+          transition={{ 
+            duration: 4, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+        />
+        <motion.div 
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/8 rounded-full blur-2xl"
+          animate={{ 
+            scale: [1.1, 1, 1.1],
+            opacity: [1, 0.8, 1]
+          }}
+          transition={{ 
+            duration: 5, 
+            repeat: Infinity, 
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-purple-500/4 to-cyan-500/4 rounded-full blur-2xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto">
         {/* Header Section */}
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-cyan-600 mb-6 mx-auto"
           >
             <Zap className="w-8 h-8 text-white" />
@@ -154,8 +237,8 @@ const PricingPage = () => {
                 key={service.id}
                 variants={cardVariants}
                 whileHover={{ 
-                  scale: 1.02,
-                  transition: { duration: 0.2 }
+                  scale: 1.01,
+                  transition: { duration: 0.2, ease: "easeOut" }
                 }}
                 className="group relative"
               >
@@ -170,7 +253,11 @@ const PricingPage = () => {
                   <div className="relative z-10">
                     {/* Service Icon */}
                     <motion.div
-                      whileHover={{ rotate: 5, scale: 1.1 }}
+                      whileHover={{ 
+                        rotate: 3, 
+                        scale: 1.05,
+                        transition: { duration: 0.2, ease: "easeOut" }
+                      }}
                       className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} mb-6`}
                     >
                       <IconComponent className="w-8 h-8 text-white" />
@@ -196,11 +283,12 @@ const PricingPage = () => {
                       {service.features.map((feature, featureIndex) => (
                         <motion.div
                           key={featureIndex}
-                          initial={{ opacity: 0, x: -20 }}
+                          initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ 
-                            duration: 0.4, 
-                            delay: 0.1 * featureIndex + 0.3 * index 
+                            duration: 0.3, 
+                            delay: 0.05 * featureIndex + 0.2 * index,
+                            ease: "easeOut"
                           }}
                           className="flex items-start space-x-3"
                         >
@@ -245,11 +333,95 @@ const PricingPage = () => {
           })}
         </motion.div>
 
+        {/* FAQs Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mt-32"
+        >
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-600 to-yellow-600 mb-6 mx-auto"
+            >
+              <HelpCircle className="w-8 h-8 text-white" />
+            </motion.div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-400 via-yellow-400 to-amber-400 bg-clip-text text-transparent mb-6">
+              Frequently Asked Questions
+            </h2>
+            
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Got questions? We've got answers. Here are the most common questions we receive about our services and pricing.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
+                className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden"
+              >
+                <motion.button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full p-6 text-left flex items-center justify-between hover:bg-white/5 transition-colors duration-200"
+                  whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+                >
+                  <div className="flex items-center space-x-4">
+                    <span className="text-lg font-semibold text-orange-400">
+                      ❓ {index + 1}.
+                    </span>
+                    <h3 className="text-lg font-semibold text-white">
+                      {faq.question}
+                    </h3>
+                  </div>
+                  <motion.div
+                    animate={{ rotate: openFaq === index ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ChevronDown className="w-5 h-5 text-gray-400" />
+                  </motion.div>
+                </motion.button>
+                
+                <AnimatePresence mode="wait">
+                  {openFaq === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6">
+                        <div className="pl-12 pr-4">
+                          <p className="text-gray-300 leading-relaxed">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
         {/* Bottom CTA Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mt-20"
         >
           <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl shadow-black/20">
