@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -17,9 +17,13 @@ import {
   ArrowRight
 } from 'lucide-react';
 
+import axios from 'axios'
+import { useRouter } from 'next/navigation';
+
 const ContactPage = () => {
+  const router = useRouter()
   const [formData, setFormData] = useState({
-    name: '',
+    Name: '',
     email: '',
     company: '',
     subject: '',
@@ -34,28 +38,29 @@ const ContactPage = () => {
       ...prev,
       [name]: value
     }));
+
+    
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert('Message sent successfully! We\'ll get back to you soon.');
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        subject: '',
-        message: ''
-      });
-    }, 1500);
+    console.log(formData)
+    try {
+      const response = await axios.post('/api/support',formData);
+      if(response && response.status===201){
+        console.log(response)
+      }
+    } catch (error) {
+      const Err = error as Error
+      console.error(Err);
+    }
+
+
   };
 
   const handleScheduleMeeting = () => {
-    alert('Schedule meeting functionality coming soon!');
+    router.push('/schedule')
   };
 
   const fadeInUp = {
@@ -187,8 +192,8 @@ const ContactPage = () => {
                       <input
                         type="text"
                         id="name"
-                        name="name"
-                        value={formData.name}
+                        name="Name"
+                        value={formData.Name}
                         onChange={handleInputChange}
                         required
                         className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-slate-700 text-gray-900 dark:text-white"

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <title>{{MeetingTitle}} – {{CompanyName}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { margin:0; padding:0; background:#f5f7fb; font-family:Arial, sans-serif; }
+    .container { max-width:600px; margin:auto; background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+    .header { text-align:center; padding:20px; }
+    .header img { max-width:160px; height:auto; }
+    .content { padding:20px; color:#333; }
+    .btn { display:inline-block; padding:12px 24px; background:#2563eb; color:#fff; text-decoration:none; border-radius:6px; font-weight:bold; }
+    .footer { font-size:12px; color:#888; padding:20px; text-align:center; background:#f5f7fb; }
+  </style>
+</head>
+<body>
+
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center" style="padding:20px;">
+        <div class="container">
+          
+          <!-- Header -->
+          <div class="header">
+            <a href="{{CompanyUrl}}" target="_blank">
+              <img src="LOGO_URL" alt="{{CompanyName}} Logo">
+            </a>
+          </div>
+
+          <!-- Content -->
+          <div class="content">
+            <h1 style="margin-top:0;">{{MeetingTitle}}</h1>
+            <p>You’re invited to an online meeting hosted by <strong>{{CompanyName}}</strong>.</p>
+            <p><strong>Date:</strong> {{MeetingDate}}</p>
+            <p><strong>Time:</strong> {{MeetingTime}}</p>
+
+            <p style="margin-top:24px;">
+              <a href="{{MeetingLink}}" class="btn" target="_blank">Join Meeting</a>
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+          Need help? <a href="{{SupportUrl}}" target="_blank" style="color:#2563eb;">Contact support</a>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

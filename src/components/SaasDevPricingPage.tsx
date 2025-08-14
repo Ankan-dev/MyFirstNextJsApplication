@@ -12,7 +12,13 @@ import {
   Database,
   Link,
   DollarSign,
-  TrendingUp
+  TrendingUp,
+  Server,
+  Smartphone,
+  Globe,
+  Layers,
+  Settings,
+  Zap
 } from 'lucide-react';
 
 const SaasDevPricingPage = () => {
@@ -95,7 +101,7 @@ const SaasDevPricingPage = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative z-10 min-h-screen flex items-center justify-center px-6">
+      <section className="relative z-10 min-h-screen flex items-center justify-center px-6 pt-24">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
@@ -348,6 +354,193 @@ const SaasDevPricingPage = () => {
                 </div>
               </div>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Technologies Section */}
+      <section className="relative z-10 py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            {...fadeInUp}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
+                Powered by
+              </span>
+              <br />
+              <span className="text-white">Modern Technologies</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              We use the latest and most reliable technologies to build scalable, secure, and performant SaaS applications
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            animate="animate"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8"
+          >
+            {/* Frontend Technologies */}
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-orange-500/10 to-amber-500/10 border border-orange-400/20 hover:border-orange-400/40 transition-all duration-300"
+            >
+              <Globe className="w-12 h-12 text-orange-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">HTML5</h3>
+              <p className="text-sm text-gray-400 text-center">Modern markup</p>
+            </motion.div>
+
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300"
+            >
+              <Layers className="w-12 h-12 text-blue-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">CSS3</h3>
+              <p className="text-sm text-gray-400 text-center">Responsive design</p>
+            </motion.div>
+
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-yellow-500/10 to-orange-500/10 border border-yellow-400/20 hover:border-yellow-400/40 transition-all duration-300"
+            >
+              <Code className="w-12 h-12 text-yellow-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">JavaScript</h3>
+              <p className="text-sm text-gray-400 text-center">Dynamic functionality</p>
+            </motion.div>
+
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-400/20 hover:border-cyan-400/40 transition-all duration-300"
+            >
+              <Zap className="w-12 h-12 text-cyan-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">React</h3>
+              <p className="text-sm text-gray-400 text-center">UI framework</p>
+            </motion.div>
+
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-gray-500/10 to-slate-500/10 border border-gray-400/20 hover:border-gray-400/40 transition-all duration-300"
+            >
+              <Settings className="w-12 h-12 text-gray-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">Next.js</h3>
+              <p className="text-sm text-gray-400 text-center">Full-stack framework</p>
+            </motion.div>
+
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 border border-green-400/20 hover:border-green-400/40 transition-all duration-300"
+            >
+              <Server className="w-12 h-12 text-green-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">Node.js</h3>
+              <p className="text-sm text-gray-400 text-center">Backend runtime</p>
+            </motion.div>
+
+            {/* Backend Technologies */}
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-red-500/10 to-pink-500/10 border border-red-400/20 hover:border-red-400/40 transition-all duration-300"
+            >
+              <Link className="w-12 h-12 text-red-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">Express</h3>
+              <p className="text-sm text-gray-400 text-center">Web framework</p>
+            </motion.div>
+
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-blue-600/10 to-indigo-600/10 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300"
+            >
+              <Code className="w-12 h-12 text-blue-500 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">Python</h3>
+              <p className="text-sm text-gray-400 text-center">Backend language</p>
+            </motion.div>
+
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-green-600/10 to-teal-600/10 border border-green-500/20 hover:border-green-500/40 transition-all duration-300"
+            >
+              <Shield className="w-12 h-12 text-green-500 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">Django</h3>
+              <p className="text-sm text-gray-400 text-center">Python framework</p>
+            </motion.div>
+
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-red-600/10 to-orange-600/10 border border-red-500/20 hover:border-red-500/40 transition-all duration-300"
+            >
+              <Code className="w-12 h-12 text-red-500 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">Java</h3>
+              <p className="text-sm text-gray-400 text-center">Backend & Android</p>
+            </motion.div>
+
+            {/* Database Technologies */}
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-green-500/10 to-lime-500/10 border border-green-400/20 hover:border-green-400/40 transition-all duration-300"
+            >
+              <Database className="w-12 h-12 text-green-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">MongoDB</h3>
+              <p className="text-sm text-gray-400 text-center">NoSQL database</p>
+            </motion.div>
+
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-purple-500/10 to-violet-500/10 border border-purple-400/20 hover:border-purple-400/40 transition-all duration-300"
+            >
+              <Database className="w-12 h-12 text-purple-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">SQL</h3>
+              <p className="text-sm text-gray-400 text-center">Relational DB</p>
+            </motion.div>
+
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 border border-indigo-400/20 hover:border-indigo-400/40 transition-all duration-300"
+            >
+              <Smartphone className="w-12 h-12 text-indigo-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">React Native</h3>
+              <p className="text-sm text-gray-400 text-center">Mobile apps</p>
+            </motion.div>
+
+            {/* Cloud & Services */}
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-orange-600/10 to-red-600/10 border border-orange-500/20 hover:border-orange-500/40 transition-all duration-300"
+            >
+              <Cloud className="w-12 h-12 text-orange-500 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">Firebase</h3>
+              <p className="text-sm text-gray-400 text-center">BaaS platform</p>
+            </motion.div>
+
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-pink-500/10 to-rose-500/10 border border-pink-400/20 hover:border-pink-400/40 transition-all duration-300"
+            >
+              <Server className="w-12 h-12 text-pink-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">Appwrite</h3>
+              <p className="text-sm text-gray-400 text-center">Backend services</p>
+            </motion.div>
+
+            <motion.div
+              {...fadeInUp}
+              className="group flex flex-col items-center p-6 rounded-2xl backdrop-blur-xl bg-gradient-to-br from-slate-500/10 to-gray-500/10 border border-slate-400/20 hover:border-slate-400/40 transition-all duration-300"
+            >
+              <Cloud className="w-12 h-12 text-slate-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-semibold text-white mb-2">AWS</h3>
+              <p className="text-sm text-gray-400 text-center">Cloud platform</p>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            {...fadeInUp}
+            transition={{ delay: 0.8 }}
+            className="text-center mt-16"
+          >
+            <p className="text-lg text-gray-400 max-w-4xl mx-auto">
+              Our technology stack is carefully chosen to ensure your SaaS application is built for performance, 
+              scalability, and maintainability. We stay up-to-date with the latest industry standards and best practices.
+            </p>
           </motion.div>
         </div>
       </section>

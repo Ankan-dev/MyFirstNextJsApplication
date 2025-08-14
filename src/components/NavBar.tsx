@@ -4,6 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Code, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Logo from '../../public/logo.png'
+import Image from 'next/image';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -34,25 +36,11 @@ const NavBar = () => {
               whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-3 cursor-pointer"
             >
-              <div className="relative">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center"
-                >
-                  <Code className="w-5 h-5 text-white" />
-                </motion.div>
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-full"
-                />
-              </div>
+             
               <div className="hidden sm:block">
-                <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                  Vironex
-                </span>
-                <div className="text-xs text-gray-400 -mt-1">Where AI Meets Development Excellence</div>
+                <Image src='/logo.png' width={100} height={100} alt={''}/>
+                  
+                
               </div>
             </motion.div>
             </Link>

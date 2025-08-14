@@ -1,15 +1,9 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +17,391 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== CALENDAR STYLES ===== */
+
+/* Calendar Container */
+.p-calendar {
+  position: relative;
+}
+
+.p-calendar .p-datepicker {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 
+              0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+  padding: 1.5rem !important;
+  width: 40rem !important;
+  min-width: 320px;
+}
+
+/* Calendar Header */
+.p-datepicker-header {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(236, 72, 153, 0.1)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0.75rem !important;
+  padding: 1rem 1.5rem !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.p-datepicker-title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 1.125rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.p-datepicker-month,
+.p-datepicker-year {
+  color: #ffffff !important;
+  background: transparent !important;
+  border: none !important;
+  font-weight: 600 !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 0.5rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.p-datepicker-month:hover,
+.p-datepicker-year:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: scale(1.05);
+}
+
+/* Navigation Buttons */
+.p-datepicker-prev,
+.p-datepicker-next {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0.5rem !important;
+  color: #d1d5db !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+.p-datepicker-prev:hover,
+.p-datepicker-next:hover {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.3), rgba(236, 72, 153, 0.3)) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px -5px rgba(147, 51, 234, 0.3);
+}
+
+.p-datepicker-prev:active,
+.p-datepicker-next:active {
+  transform: scale(0.95);
+}
+
+/* Calendar Grid */
+.p-datepicker-table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0.25rem !important;
+}
+
+/* Day Headers (Mon, Tue, etc.) */
+.p-datepicker-table th {
+  padding: 0.75rem 0.5rem !important;
+  text-align: center !important;
+  color: #9ca3af !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Day Cells */
+.p-datepicker-table td {
+  padding: 0.125rem !important;
+}
+
+.p-datepicker-table td span {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  border-radius: 0.75rem !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+  color: #d1d5db !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid transparent !important;
+}
+
+/* Hover State */
+.p-datepicker-table td span:hover {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(236, 72, 153, 0.2)) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px -4px rgba(147, 51, 234, 0.3);
+}
+
+/* Today's Date */
+.p-datepicker-table td.p-datepicker-today span {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(16, 185, 129, 0.3)) !important;
+  border: 1px solid rgba(34, 197, 94, 0.5) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.p-datepicker-table td.p-datepicker-today span:hover {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.5), rgba(16, 185, 129, 0.5)) !important;
+  transform: scale(1.15);
+  box-shadow: 0 12px 24px -6px rgba(34, 197, 94, 0.4);
+}
+
+/* Selected Date - Multiple selector variations to ensure compatibility */
+.p-datepicker-table td.p-highlight span,
+.p-datepicker-table .p-highlight span,
+.p-highlight span,
+.p-datepicker .p-highlight,
+.p-datepicker .p-highlight > span,
+.p-calendar .p-highlight,
+.p-calendar .p-highlight > span,
+td.p-highlight,
+td.p-highlight > span {
+  background: linear-gradient(135deg, #9333ea, #ec4899) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 8px 25px -8px rgba(147, 51, 234, 0.6) !important;
+}
+
+.p-datepicker-table td.p-highlight span:hover,
+.p-datepicker-table .p-highlight span:hover,
+.p-highlight span:hover,
+.p-datepicker .p-highlight:hover,
+.p-datepicker .p-highlight:hover > span,
+.p-calendar .p-highlight:hover,
+.p-calendar .p-highlight:hover > span,
+td.p-highlight:hover,
+td.p-highlight:hover > span {
+  background: linear-gradient(135deg, #a855f7, #f472b6) !important;
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px -10px rgba(147, 51, 234, 0.7) !important;
+}
+
+/* Alternative selected state selectors for different PrimeReact versions */
+.p-datepicker-other-month.p-highlight span,
+.p-datepicker-table .p-datepicker-other-month.p-highlight span {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.6), rgba(236, 72, 153, 0.6)) !important;
+  color: #ffffff !important;
+}
+
+/* Other Month Days (Muted) */
+.p-datepicker-table td.p-datepicker-other-month span {
+  color: #6b7280 !important;
+  background: rgba(255, 255, 255, 0.01) !important;
+}
+
+.p-datepicker-table td.p-datepicker-other-month span:hover {
+  color: #9ca3af !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Week Numbers */
+.p-datepicker-weeknumber {
+  color: #9ca3af !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-radius: 0.5rem !important;
+  padding: 0.5rem !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  text-align: center !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Disabled Dates */
+.p-datepicker-table td.p-disabled span {
+  color: #4b5563 !important;
+  background: rgba(255, 255, 255, 0.01) !important;
+  cursor: not-allowed !important;
+  opacity: 0.5 !important;
+}
+
+.p-datepicker-table td.p-disabled span:hover {
+  transform: none !important;
+  background: rgba(255, 255, 255, 0.01) !important;
+  box-shadow: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .p-calendar .p-datepicker {
+    width: 100% !important;
+    max-width: 40rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .p-calendar .p-datepicker {
+    width: 100% !important;
+    max-width: 32rem !important;
+    padding: 1.25rem !important;
+  }
+  
+  .p-datepicker-header {
+    padding: 0.875rem 1.25rem !important;
+    margin-bottom: 0.875rem !important;
+  }
+  
+  .p-datepicker-title {
+    font-size: 1.125rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .p-calendar .p-datepicker {
+    padding: 1rem !important;
+    min-width: 280px;
+    max-width: 100% !important;
+  }
+  
+  .p-datepicker-header {
+    padding: 0.75rem 1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  .p-datepicker-title {
+    font-size: 1rem !important;
+  }
+  
+  .p-datepicker-table td span {
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .p-datepicker-prev,
+  .p-datepicker-next {
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .p-calendar .p-datepicker {
+    padding: 0.75rem !important;
+    min-width: 260px;
+  }
+  
+  .p-datepicker-header {
+    padding: 0.5rem 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .p-datepicker-title {
+    font-size: 0.875rem !important;
+  }
+  
+  .p-datepicker-table th {
+    padding: 0.5rem 0.25rem !important;
+    font-size: 0.75rem !important;
+  }
+  
+  .p-datepicker-table td span {
+    width: 2rem !important;
+    height: 2rem !important;
+    font-size: 0.75rem !important;
+  }
+  
+  .p-datepicker-prev,
+  .p-datepicker-next {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+}
+
+/* Animation for Calendar Appearance */
+.p-calendar .p-datepicker {
+  animation: calendarFadeIn 0.4s ease-out;
+}
+
+@keyframes calendarFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Focus States for Accessibility */
+.p-datepicker-table td span:focus {
+  outline: 2px solid rgba(147, 51, 234, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+.p-datepicker-prev:focus,
+.p-datepicker-next:focus {
+  outline: 2px solid rgba(147, 51, 234, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+/* Force selected date highlighting - catch-all selectors */
+[data-p-highlight="true"],
+[data-p-highlight="true"] span,
+.p-datepicker [data-p-highlight="true"],
+.p-datepicker [data-p-highlight="true"] span {
+  background: linear-gradient(135deg, #9333ea, #ec4899) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 8px 25px -8px rgba(147, 51, 234, 0.6) !important;
+}
+
+[data-p-highlight="true"]:hover,
+[data-p-highlight="true"]:hover span,
+.p-datepicker [data-p-highlight="true"]:hover,
+.p-datepicker [data-p-highlight="true"]:hover span {
+  background: linear-gradient(135deg, #a855f7, #f472b6) !important;
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px -10px rgba(147, 51, 234, 0.7) !important;
+}
+
+/* Custom Scrollbar for Year/Month Dropdowns (if applicable) */
+.p-yearpicker::-webkit-scrollbar,
+.p-monthpicker::-webkit-scrollbar {
+  width: 6px;
+}
+
+.p-yearpicker::-webkit-scrollbar-track,
+.p-monthpicker::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.p-yearpicker::-webkit-scrollbar-thumb,
+.p-monthpicker::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #9333ea, #ec4899);
+  border-radius: 3px;
+}
+
+.p-yearpicker::-webkit-scrollbar-thumb:hover,
+.p-monthpicker::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #a855f7, #f472b6);
 }

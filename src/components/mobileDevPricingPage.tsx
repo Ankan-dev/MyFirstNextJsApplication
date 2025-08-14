@@ -95,7 +95,7 @@ const MobileDevPricingPage = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative z-10 min-h-screen flex items-center justify-center px-6">
+      <section className="relative z-10 min-h-screen flex items-center justify-center px-6 pt-24">
         <div className="max-w-6xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
