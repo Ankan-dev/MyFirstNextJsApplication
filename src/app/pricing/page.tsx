@@ -28,15 +28,15 @@ const PricingPage = () => {
   const faqs = [
     {
       question: "How does your pricing work?",
-      answer: "We offer flexible, pay-as-you-go pricing based on your specific requirements. Whether you need a simple website or a full-scale SaaS platform, we'll tailor a quote that matches your scope and budget. Just contact us for your custom pricing."
+      answer: "We offer flexible, pay-as-you-go pricing based on your specific requirements. Whether you need a simple website or a full-scale SaaS platform, we&apos;ll tailor a quote that matches your scope and budget. Just contact us for your custom pricing."
     },
     {
       question: "Do you have fixed packages or rates?",
-      answer: "No fixed rates. Every project is different, so we don't believe in one-size-fits-all pricing. We assess your goals, timeline, and features before giving you the best price possible."
+      answer: "No fixed rates. Every project is different, so we don&apos;t believe in one-size-fits-all pricing. We assess your goals, timeline, and features before giving you the best price possible."
     },
     {
       question: "Is the consultation free?",
-      answer: "Absolutely. Our initial consultation is 100% free and comes with no obligations. We'll understand your needs and guide you on the next best steps."
+      answer: "Absolutely. Our initial consultation is 100% free and comes with no obligations. We&apos;ll understand your needs and guide you on the next best steps."
     },
     {
       question: "What technologies do you use?",
@@ -44,11 +44,11 @@ const PricingPage = () => {
     },
     {
       question: "How long will my project take?",
-      answer: "Project timelines vary based on complexity, but we'll provide a detailed estimate during our initial discussion. Timely delivery is always a priority."
+      answer: "Project timelines vary based on complexity, but we&apos;ll provide a detailed estimate during our initial discussion. Timely delivery is always a priority."
     },
     {
       question: "Can you update or improve an existing application?",
-      answer: "Yes. Whether it's redesigning your website, refactoring your code, or integrating AI into your existing app — we've got you covered."
+      answer: "Yes. Whether it&apos;s redesigning your website, refactoring your code, or integrating AI into your existing app — we&apos;ve got you covered."
     },
     {
       question: "What if I only need help with part of the project?",
@@ -60,11 +60,11 @@ const PricingPage = () => {
     },
     {
       question: "Can I scale up later if my needs grow?",
-      answer: "Definitely. We design with scalability in mind — whether it's your website, mobile app, or SaaS platform. You can start small and grow at your pace."
+      answer: "Definitely. We design with scalability in mind — whether it&apos;s your website, mobile app, or SaaS platform. You can start small and grow at your pace."
     },
     {
       question: "How do I get started?",
-      answer: "Just head over to our Contact Us page and tell us a bit about your project. We'll schedule a call, understand your needs, and send over a customized quote — no pressure."
+      answer: "Just head over to our Contact Us page and tell us a bit about your project. We&apos;ll schedule a call, understand your needs, and send over a customized quote — no pressure."
     }
   ];
 

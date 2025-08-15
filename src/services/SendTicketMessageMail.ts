@@ -78,7 +78,7 @@ export const sendMessageEmailToAdmins = async (admin_email: string,fullname: str
 
         const text = `Dear Admin, A new message has been send by the client,${fullname} with email address ${email} `;
 
-        const info =await transporter.sendMail({
+        await transporter.sendMail({
             from: process.env.MAIL_USERNAME,
             to: admin_email,
             subject: subject,
@@ -86,10 +86,9 @@ export const sendMessageEmailToAdmins = async (admin_email: string,fullname: str
             html: body
         })
 
-        return responses<string>(200,true,"Email was sent successfully",info.messageId);
-    } catch (error) {
-        const err = error as Error
-        return responses<Error>(500,false,"Internal server error in sending mail for ticket generation",err)
+        return responses<string>(200,true,"Email was sent successfully","");
+    } catch {
+        return responses<string>(500,false,"Internal server error in sending mail for ticket generation","")
     }
 
 

@@ -24,3 +24,5 @@ export default async function ServicePricingPage({params}:params){
         default: notFound();
     }
 }
+
+ServicePricingPage.displayName = 'ServicePricingPage';
