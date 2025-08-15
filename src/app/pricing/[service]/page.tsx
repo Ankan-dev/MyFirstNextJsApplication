@@ -9,7 +9,7 @@ interface params{
     params:{service:string}
 }
 
-export default async function ({params}:params){
+export default async function ServicePricingPage({params}:params){
     const {service}= await params;
 
     if(!service){

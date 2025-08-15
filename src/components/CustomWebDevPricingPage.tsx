@@ -228,7 +228,7 @@ const CustomWebDevPricingPage = () => {
               </h2>
               
               <p className="text-lg text-gray-300 max-w-xl mx-auto leading-relaxed">
-                You'll only pay for what you need — no inflated packages, no hidden costs. Get the most affordable solution tailored to your goals.
+                You&apos;ll only pay for what you need — no inflated packages, no hidden costs. Get the most affordable solution tailored to your goals.
               </p>
             </div>
           </motion.div>
@@ -384,7 +384,7 @@ const CustomWebDevPricingPage = () => {
               </span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We don't just build websites — we craft digital experiences that drive results
+              We don&apos;t just build websites — we craft digital experiences that drive results
             </p>
           </motion.div>
 
@@ -490,7 +490,7 @@ const CustomWebDevPricingPage = () => {
                   🚀 Ready to Launch?
                 </span>
                 <br />
-                <span className="text-white text-3xl md:text-4xl">Let's Build Something Amazing Together</span>
+                <span className="text-white text-3xl md:text-4xl">Let&apos;s Build Something Amazing Together</span>
               </h2>
               
               <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">

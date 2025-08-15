@@ -134,7 +134,7 @@ const SaasDevPricingPage = () => {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="text-lg text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            We're your tech partner from concept to launch. Whether you're building a productivity tool, marketplace, or analytics dashboard, our team delivers full-stack development, admin tools, and cloud deployments tailored to your business.
+            We&apos;re your tech partner from concept to launch. Whether you&apos;re building a productivity tool, marketplace, or analytics dashboard, our team delivers full-stack development, admin tools, and cloud deployments tailored to your business.
           </motion.p>
 
           {/* Pricing Highlight */}
@@ -202,7 +202,7 @@ const SaasDevPricingPage = () => {
           >
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
               <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                ⚙️ What's Included:
+                ⚙️ What&apos;s Included:
               </span>
             </h2>
           </motion.div>
@@ -312,7 +312,7 @@ const SaasDevPricingPage = () => {
                   📩 Ready to build your SaaS product?
                 </span>
                 <br />
-                <span className="text-white">Let's make it happen — on your terms.</span>
+                <span className="text-white">Let&apos;s make it happen — on your terms.</span>
               </h2>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">

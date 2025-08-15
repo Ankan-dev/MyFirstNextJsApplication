@@ -357,7 +357,7 @@ const PricingPage = () => {
             </h2>
             
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Got questions? We've got answers. Here are the most common questions we receive about our services and pricing.
+              Got questions? We&apos;ve got answers. Here are the most common questions we receive about our services and pricing.
             </p>
           </div>
 

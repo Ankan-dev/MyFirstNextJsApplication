@@ -1,7 +1,7 @@
-import nodemailer, { createTransport } from 'nodemailer'
+import { createTransport } from 'nodemailer'
 import dns from 'dns'
 import fs from 'fs'
-import path, { dirname } from 'path'
+import path from 'path'
 import { responses } from '@/utils/responses'
 
 import { promisify } from 'util'
@@ -9,7 +9,7 @@ import { promisify } from 'util'
 
 const ResolveMX = promisify(dns.resolveMx);
 
-let EmailTemplate = fs.readFileSync(path.join(process.cwd(), 'src', 'templates', 'meetingLinkGenerationEmailTemplate.html'), 'utf8');
+const EmailTemplate = fs.readFileSync(path.join(process.cwd(), 'src', 'templates', 'meetingLinkGenerationEmailTemplate.html'), 'utf8');
 
 const verifyEmail = (email: string): boolean => {
     const emailRegex = /^(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*|"[^\\"]+")@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
@@ -31,7 +31,7 @@ const verifyDomain = async (email: string) => {
 
         return checkDomain && checkDomain.length;
 
-    } catch (error) {
+    } catch {
         return false
     }
 }
@@ -41,7 +41,7 @@ export const SendMeetingLinkMessageMail = async (CompanyName: string, MeetingTit
 
     if (!CompanyName || !MeetingTitle || !CompanyUrl || !MeetingDate || !MeetingTime) {
 
-        return responses<String>(400, false, "missing the variables required for the email", "")
+        return responses<string>(400, false, "missing the variables required for the email", "")
     }
 
     const dateArray=MeetingDate.split(" ");

@@ -1,15 +1,14 @@
-import nodemailer, { createTransport } from 'nodemailer'
+import { createTransport } from 'nodemailer'
 import dns from 'dns'
 import fs from 'fs'
-import path, { dirname } from 'path'
+import path from 'path'
 import { responses } from '@/utils/responses'
 
 import { promisify } from 'util'
-import { info } from '@/utils/responses'
 
 const ResolveMX = promisify(dns.resolveMx);
 
-let EmailTemplate = fs.readFileSync(path.join(process.cwd(),'src','templates','ticketMessageMailTemplate.html'), 'utf8');
+const EmailTemplate = fs.readFileSync(path.join(process.cwd(),'src','templates','ticketMessageMailTemplate.html'), 'utf8');
 
 const verifyEmail = (email: string): boolean => {
     const emailRegex = /^(?:[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*|"[^\\"]+")@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
@@ -31,7 +30,7 @@ const verifyDomain = async (email: string) => {
 
         return checkDomain && checkDomain.length;
 
-    } catch (error) {
+    } catch {
         return false
     }
 }
@@ -39,7 +38,7 @@ const verifyDomain = async (email: string) => {
 export const sendMessageEmailToAdmins = async (admin_email: string,fullname: string, email: string, Subject: string, message: string, company?: string)=> {
     if (!fullname || !email || !Subject || !message) {
 
-        return responses<String>(400, false, "missing fullname or email or subject or message", "")
+        return responses<string>(400, false, "missing fullname or email or subject or message", "")
     }
 
     try {

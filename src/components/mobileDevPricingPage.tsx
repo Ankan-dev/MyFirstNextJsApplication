@@ -128,7 +128,7 @@ const MobileDevPricingPage = () => {
             transition={{ delay: 0.5, duration: 0.6 }}
             className="text-lg text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            Whether you're launching your first product or scaling your tech stack, we guide you through the entire mobile development process with clear communication, technical expertise, and ongoing support.
+            Whether you&apos;re launching your first product or scaling your tech stack, we guide you through the entire mobile development process with clear communication, technical expertise, and ongoing support.
           </motion.p>
 
           {/* Pricing Highlight */}
@@ -303,7 +303,7 @@ const MobileDevPricingPage = () => {
               
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  📩 Let's talk about your app idea
+                  📩 Let&apos;s talk about your app idea
                 </span>
                 <br />
                 <span className="text-white">— and get you a tailored quote.</span>

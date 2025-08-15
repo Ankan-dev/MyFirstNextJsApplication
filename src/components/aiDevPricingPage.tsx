@@ -153,7 +153,7 @@ const AiDevPricingPage = () => {
               </h2>
               
               <p className="text-lg text-gray-300 max-w-xl mx-auto leading-relaxed">
-                Our pricing is flexible and usage-based — whether you want a simple chatbot or a complex, AI-integrated workflow, we'll match your needs and budget.
+                Our pricing is flexible and usage-based — whether you want a simple chatbot or a complex, AI-integrated workflow, we&apos;ll match your needs and budget.
               </p>
             </div>
           </motion.div>
@@ -256,7 +256,7 @@ const AiDevPricingPage = () => {
             </h2>
             
             <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed">
-              We don't just add AI for the sake of it. Every AI implementation is designed to solve real problems and deliver measurable value to your users.
+              We don&apos;t just add AI for the sake of it. Every AI implementation is designed to solve real problems and deliver measurable value to your users.
             </p>
             
             <div className="grid md:grid-cols-2 gap-4 text-sm">
@@ -302,7 +302,7 @@ const AiDevPricingPage = () => {
               
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                  📩 Let's explore your AI use case
+                  📩 Let&apos;s explore your AI use case
                 </span>
                 <br />
                 <span className="text-white">— and give you a quote that fits.</span>
