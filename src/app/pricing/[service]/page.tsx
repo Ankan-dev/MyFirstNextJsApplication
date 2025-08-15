@@ -5,11 +5,11 @@ import SaasDevPricingPage from "@/components/SaasDevPricingPage";
 
 import { notFound } from "next/navigation";
 
-interface params{
-    params:{service:string}
+interface PageProps {
+    params: Promise<{service: string}>
 }
 
-export default async function ServicePricingPage({params}:params){
+export default async function ServicePricingPage({params}: PageProps){
     const {service}= await params;
 
     if(!service){
