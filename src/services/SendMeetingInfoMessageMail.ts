@@ -36,34 +36,43 @@ const verifyDomain = async (email: string) => {
     }
 }
 
-export const SendMeetingLinkMessageMail = async (CompanyName: string, MeetingTitle: string,MeetingLink:string, CompanyUrl: string, MeetingDate: string, MeetingTime: string, email: string) => {
+export const sendMeetingInfoToadmins = async (emailId:string,meetingDate:string, meetingTime:string, adminEmail:string) => {
     
 
-    if (!CompanyName || !MeetingTitle || !CompanyUrl || !MeetingDate || !MeetingTime) {
+    if (!emailId || !meetingDate || !meetingTime) {
 
         return responses<string>(400, false, "missing the variables required for the email", "")
     }
 
-    const dateArray=MeetingDate.split(" ");
+    
 
-    const finalDate = `${dateArray[0]}, ${dateArray[2]} ${dateArray[1]}, ${dateArray[3]}`
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    const date = new Date(meetingDate);
+
+    const DateOfTheMonth = date.getDate();
+    const getDayNumber= date.getDay();
+    const Day = days[getDayNumber];
+    const monthNumber=date.getMonth();
+    const Month = months[monthNumber];
+    const Year = date.getFullYear();
+
+    const finalDate = `${DateOfTheMonth} ${Month} ${Year}, ${Day}`
 
     try {
         const body = EmailTemplate
-            .replace('{{CompanyName}}', CompanyName)
-            .replace('{{MeetingTitle}}', MeetingTitle)
-            .replace('{{CompanyUrl}}', CompanyUrl)
+            .replace('{{emailid}}', emailId)
             .replace('{{MeetingDate}}', finalDate)
-            .replace('{{MeetingTime}}', MeetingTime)
-            .replace('{{MeetingLink}}',MeetingLink)
+            .replace('{{MeetingTime}}', meetingTime)
 
-        const checkIsEmail = verifyEmail(email);
+        const checkIsEmail = verifyEmail(adminEmail);
 
         if (!checkIsEmail) {
             return responses<string>(400, false, 'Email is not valid', "");
         }
 
-        const checkDomain = await verifyDomain(email);
+        const checkDomain = await verifyDomain(adminEmail);
 
         if (!checkDomain) {
             return responses<string>(400, false, "responses are invalid")
@@ -80,28 +89,25 @@ export const SendMeetingLinkMessageMail = async (CompanyName: string, MeetingTit
             }
         })
 
-        const subject = `Meeting Invitation – ${MeetingTitle} – ${MeetingDate} at ${MeetingTime}`;
+        const subject = `Meeting Invitation – Client's Scheduled Meeting – ${finalDate} at ${meetingTime}`;
 
         const text = `
 Hello,
 
-You are invited to an online meeting hosted by ${CompanyName}.
+You are invited to an online meeting hosted by Vironex digital.
 
-Meeting Title: ${MeetingTitle}
-Date: ${MeetingDate}
-Time: ${MeetingTime}
+Meeting Title: Client's Scheduled Meeting
+Date: ${finalDate}
+Time: ${meetingTime}
 
-Join the meeting here: ${MeetingLink}
-
-If you have any questions or need assistance, please email:support@vironexdigital.com
 
 Best regards,
-${CompanyName} Team
+Vironex Digital Team
 `;
 
         const info = await transporter.sendMail({
             from: process.env.MAIL_USERNAME,
-            to: email,
+            to: adminEmail,
             subject: subject,
             text: text,
             html: body

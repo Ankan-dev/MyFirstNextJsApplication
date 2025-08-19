@@ -13,8 +13,10 @@ import {
   ChevronDown,
   HelpCircle
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const PricingPage = () => {
+  const router = useRouter();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   // Add smooth scrolling to the document
@@ -24,6 +26,10 @@ const PricingPage = () => {
       document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
+
+  function NavigationFunction (route:string){
+    router.push(`/pricing/${route}`)
+  }
 
   const faqs = [
     {
@@ -83,7 +89,8 @@ const PricingPage = () => {
         'Ongoing updates, bug fixes, and performance improvements'
       ],
       gradient: 'from-purple-600 to-pink-600',
-      accentGradient: 'from-purple-500/20 to-pink-500/20'
+      accentGradient: 'from-purple-500/20 to-pink-500/20',
+      link:'/custom-web-development'
     },
     {
       id: 'mobile',
@@ -99,7 +106,8 @@ const PricingPage = () => {
         'Post-launch maintenance, version updates, and performance monitoring'
       ],
       gradient: 'from-blue-600 to-cyan-600',
-      accentGradient: 'from-blue-500/20 to-cyan-500/20'
+      accentGradient: 'from-blue-500/20 to-cyan-500/20',
+      link:'/app-development'
     },
     {
       id: 'ai',
@@ -115,7 +123,8 @@ const PricingPage = () => {
         'Seamless API integrations with OpenAI, Gemini, Google AI, and more'
       ],
       gradient: 'from-emerald-600 to-teal-600',
-      accentGradient: 'from-emerald-500/20 to-teal-500/20'
+      accentGradient: 'from-emerald-500/20 to-teal-500/20',
+      link:'/AI-development'
     },
     {
       id: 'saas',
@@ -131,7 +140,8 @@ const PricingPage = () => {
         'Scalable cloud hosting and DevOps support included'
       ],
       gradient: 'from-orange-600 to-red-600',
-      accentGradient: 'from-orange-500/20 to-red-500/20'
+      accentGradient: 'from-orange-500/20 to-red-500/20',
+      link:'/Saas-Product-Development'
     }
   ];
 
@@ -307,7 +317,8 @@ const PricingPage = () => {
                         boxShadow: "0 20px 40px rgba(139, 92, 246, 0.3)"
                       }}
                       whileTap={{ scale: 0.98 }}
-                      className={`w-full py-4 px-6 rounded-2xl bg-gradient-to-r ${service.gradient} text-white font-semibold text-lg shadow-xl shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 flex items-center justify-center space-x-2 group`}
+                      className={`w-full py-4 px-6 rounded-2xl bg-gradient-to-r ${service.gradient} text-white font-semibold text-lg shadow-xl shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 flex items-center justify-center space-x-2 group cursor-pointer`}
+                      onClick={()=>NavigationFunction(service.link)}
                     >
                       <span>View Price</span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />

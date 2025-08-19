@@ -1,132 +1,60 @@
 import { NextRequest, NextResponse } from "next/server";
 import { responses } from "@/utils/responses"
-import { generateMeedtingToken } from "@/utils/creatingMeetingTokens"
-import dbConnect from '@/lib/DbConnect'
 import meeting from '@/models/meetingModel'
-import {SendMeetingLinkMessageMail} from '@/services/SendMeetingLinkMessageMail'
+import dbConnect from '@/lib/DbConnect'
 
-interface requestedData<T> {
-    scheduledDate: Date,
+import {sendMeetingInfoToadmins} from '@/services/SendMeetingInfoMessageMail'
+
+interface requestedData {
+    scheduledDate: string,
     scheduledTime: string,
-    emails: T[]
+    email: string
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
-    const { scheduledDate, scheduledTime, emails }: requestedData<string> = await req.json();
+    const { scheduledDate, scheduledTime, email }: requestedData = await req.json();
 
     await dbConnect();
 
-    if (!scheduledDate || !emails || !scheduledTime) {
+    if (!scheduledDate || !email || !scheduledTime) {
         return NextResponse.json(responses(400, false, "schedule date or scheduled Time or emails are missing", ""), { status: 400 })
     }
 
-    const meetingDate = new Date(scheduledDate);
-
-    const meetToken = generateMeedtingToken(scheduledDate,scheduledTime,emails);
-
-    const meetLink = `${process.env.BASE_URI}/meet/${meetToken}`
-
-    const NumberOfEmails = emails.length;
+    const finalDate = new Date(scheduledDate)
+   
 
     try {
 
-        switch (NumberOfEmails) {
-            case 1: {
-                const createMeeting = await meeting.create({
-                    date: meetingDate,
-                    time: scheduledTime,
-                    admin: {
-                        email: process.env.MAIL_USERNAME,
-                        joined: false
-                    },
-                    emailOne: {
-                        email: emails[0],
-                        joined: false
-                    }
-                })
+        const createScheduledMeetingDoc = await meeting.create({
+            date:finalDate,
+            time:scheduledTime,
+            clientEmail:email
+        })
 
-                if (!createMeeting) {
-                    return NextResponse.json(responses(500, false, "couldn't save the meeting details due to internal server error", ""), { status: 500 })
-                }
-
-                const [emailSentToAdmin,emailSentToEmailOne]= await Promise.all([SendMeetingLinkMessageMail("Vironex Digital","Online Meeting Invitation",meetLink,process.env.BASE_URI as string,meetingDate.toString(),scheduledTime,process.env.MAIL_USERNAME as string),SendMeetingLinkMessageMail("Vironex Digital","Online Meeting Invitation",meetLink,process.env.BASE_URI as string,meetingDate.toString(),scheduledTime, emails[0])])
-
-                if(!emailSentToAdmin || !emailSentToEmailOne){
-                    return NextResponse.json(responses(500,false,"Error in sending emails",""))
-                }
-
-                break;
-            }
-            case 2: {
-                const createMeeting = await meeting.create({
-                    date: meetingDate,
-                    time: scheduledTime,
-                    admin: {
-                        email: process.env.MAIL_USERNAME,
-                        joined: false
-                    },
-                    emailOne: {
-                        email: emails[0],
-                        joined: false
-                    },
-                    emailTwo: {
-                        email: emails[1],
-                        joined: false
-                    }
-                })
-
-                if (!createMeeting) {
-                    return NextResponse.json(responses(500, false, "couldn't save the meeting details due to internal server error", ""), { status: 500 })
-                }
-
-                const [emailSentToAdmin,emailSentToEmailOne,emailSentToEmailTwo]= await Promise.all([SendMeetingLinkMessageMail("Vironex Digital","Online Meeting Invitation",meetLink,process.env.BASE_URI as string,meetingDate.toString(),scheduledTime,process.env.MAIL_USERNAME as string),SendMeetingLinkMessageMail("Vironex Digital","Online Meeting Invitation",meetLink,process.env.BASE_URI as string,meetingDate.toString(),scheduledTime, emails[0]),SendMeetingLinkMessageMail("Vironex Digital","Online Meeting Invitation",meetLink,process.env.BASE_URI as string,meetingDate.toString(),scheduledTime, emails[1])])
-
-                if(!emailSentToAdmin || !emailSentToEmailOne || !emailSentToEmailTwo){
-                    return NextResponse.json(responses(500,false,"Error in sending emails",""))
-                }
-
-                break;
-            }
-            case 3: {
-                const createMeeting = await meeting.create({
-                    date: meetingDate,
-                    time: scheduledTime,
-                    admin: {
-                        email: process.env.MAIL_USERNAME,
-                        joined: false
-                    },
-                    emailOne: {
-                        email: emails[0],
-                        joined: false
-                    },
-                    emailTwo: {
-                        email: emails[1],
-                        joined: false
-                    },
-                    emailThree: {
-                        email: emails[2],
-                        joined: false
-                    }
-                })
-
-                if (!createMeeting) {
-                    return NextResponse.json(responses(500, false, "couldn't save the meeting details due to internal server error", ""), { status: 500 })
-                }
-
-                const [emailSentToAdmin,emailSentToEmailOne,emailSentToEmailTwo,emailSentToEmailThree]= await Promise.all([SendMeetingLinkMessageMail("Vironex Digital","Online Meeting Invitation",meetLink,process.env.BASE_URI as string,meetingDate.toString(),scheduledTime,process.env.MAIL_USERNAME as string),SendMeetingLinkMessageMail("Vironex Digital","Online Meeting Invitation",meetLink,process.env.BASE_URI as string,meetingDate.toString(),scheduledTime, emails[0]),SendMeetingLinkMessageMail("Vironex Digital","Online Meeting Invitation",meetLink,process.env.BASE_URI as string,meetingDate.toString(),scheduledTime, emails[1]),SendMeetingLinkMessageMail("Vironex Digital","Online Meeting Invitation",meetLink,process.env.BASE_URI as string,meetingDate.toString(),scheduledTime, emails[2])])
-
-                if(!emailSentToAdmin || !emailSentToEmailOne || !emailSentToEmailTwo || !emailSentToEmailThree){
-                    return NextResponse.json(responses(500,false,"Error in sending emails",""))
-                }
-
-                break;
-            }
-            default: {
-                return NextResponse.json(responses(500, false, "can't schedule the meeting due to internal server error", ""), { status: 500 })
-            }
-
+        if(!createScheduledMeetingDoc){
+            return NextResponse.json(responses(500,false,"Could not create the database due to some internal server error",""),{status:500});
         }
 
+        const [sendToAnkan,sendToShreya,sentToTista,sendToSoham]= await Promise.all([
+            sendMeetingInfoToadmins(email,scheduledDate.toString(),scheduledTime,process.env.ADMIN_ANKAN as string),
+            sendMeetingInfoToadmins(email,scheduledDate.toString(),scheduledTime,process.env.ADMIN_SOHAM as string),
+            sendMeetingInfoToadmins(email,scheduledDate.toString(),scheduledTime,process.env.ADMIN_SHREYA as string),
+            sendMeetingInfoToadmins(email,scheduledDate.toString(),scheduledTime,process.env.ADMIN_TISTA as string)
+        ])
+
+        
+        if(!sendToAnkan.success){
+              return NextResponse.json(responses<string>(sendToAnkan.status,sendToAnkan.success,sendToAnkan.message,sendToAnkan.data as string),{status:200});
+        }
+        if(!sendToShreya.success){
+              return NextResponse.json(responses<string>(sendToShreya.status,sendToShreya.success,sendToShreya.message,sendToShreya.data as string),{status:200});
+        }
+        if(!sentToTista.success){
+              return NextResponse.json(responses<string>(sentToTista.status,sentToTista.success,sentToTista.message,sentToTista.data as string),{status:200});
+        }
+        if(!sendToSoham.success){
+              return NextResponse.json(responses<string>(sendToSoham.status,sendToSoham.success,sendToSoham.message,sendToSoham.data as string),{status:200});
+        }
         return NextResponse.json(responses(200,true,"Meeting scheduled successfully",""),{status:200});
     } catch (error) {
         return NextResponse.json(responses(500,false,"can't generate meeting link due to internal server error",""),{status:500})
