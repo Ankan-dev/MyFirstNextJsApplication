@@ -16,7 +16,7 @@ const Schedulepage: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [loader, setLoader] = useState<boolean>(false);
 
-  const handleEmailChange: any = (value: string) => {
+  const handleEmailChange = (value: string) => {
     setEmail(value)
   };
 
