@@ -14,10 +14,11 @@ import {
   DollarSign,
   Zap
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const MobileDevPricingPage = () => {
   const [isMounted, setIsMounted] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -314,6 +315,7 @@ const MobileDevPricingPage = () => {
                   className="group relative px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl font-bold text-lg overflow-hidden shadow-xl shadow-blue-500/25"
                   whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.4)" }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={()=>router.push('/schedule')}
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-400"

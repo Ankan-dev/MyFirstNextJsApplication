@@ -6,10 +6,11 @@ import { Menu, X, Code, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Logo from '../../public/logo.png'
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
+  const router = useRouter();
   const navItems = [
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
@@ -79,6 +80,7 @@ const NavBar = () => {
                 className="hidden lg:flex group relative px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-semibold text-sm overflow-hidden shadow-lg shadow-purple-500/25"
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px -12px rgba(168, 85, 247, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
+                onClick={()=>router.push('/services')}
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"

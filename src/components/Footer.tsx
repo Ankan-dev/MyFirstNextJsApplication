@@ -38,10 +38,10 @@ const Footer = () => {
   ];
 
   const services = [
-    { name: 'Web Development', href: '#web-dev' },
-    { name: 'Mobile Apps', href: '#mobile' },
-    { name: 'AI Integration', href: '#ai' },
-    { name: 'SAAS Application Development', href: '#mvp' },
+    { name: 'Web Development', href: '/pricing/custom-web-development' },
+    { name: 'Mobile Apps', href: '/pricing/app-development' },
+    { name: 'AI Integration', href: '/pricing/AI-development' },
+    { name: 'SAAS Application Development', href: '/pricing/Saas-Product-Development' },
   ];
 
   const socialLinks = [
@@ -198,7 +198,7 @@ const Footer = () => {
                   <div>
                     <div className="text-gray-400 text-sm">Email</div>
                     <a href="mailto:hello@vironex.dev" className="text-white hover:text-purple-400 transition-colors duration-300">
-                      hello@vironex.dev
+                      support@vironexdigital.com
                     </a>
                   </div>
                 </div>

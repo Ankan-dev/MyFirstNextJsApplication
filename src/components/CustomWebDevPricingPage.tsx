@@ -20,10 +20,11 @@ import {
   Shield,
   Rocket
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const CustomWebDevPricingPage = () => {
   const [isMounted, setIsMounted] = useState(false);
-
+  const router =useRouter();
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -506,6 +507,7 @@ const CustomWebDevPricingPage = () => {
                     y: -2
                   }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={()=>router.push('/schedule')}
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400"
@@ -514,7 +516,7 @@ const CustomWebDevPricingPage = () => {
                     transition={{ duration: 0.3 }}
                   />
                   <span className="relative z-10 flex items-center gap-3">
-                    🎯 Get Your Custom Quote
+                    💬 Free Consultation
                     <motion.div
                       animate={isMounted ? { x: [0, 8, 0] } : {}}
                       transition={{ duration: 2, repeat: Infinity }}
@@ -524,16 +526,6 @@ const CustomWebDevPricingPage = () => {
                   </span>
                 </motion.button>
                 
-                <motion.button
-                  className="group relative px-12 py-5 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all duration-300"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="flex items-center gap-3">
-                    💬 Free Consultation
-                    <Clock className="w-5 h-5" />
-                  </span>
-                </motion.button>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">

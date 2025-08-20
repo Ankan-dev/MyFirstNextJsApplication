@@ -449,6 +449,7 @@ const PricingPage = () => {
               }}
               whileTap={{ scale: 0.98 }}
               className="py-4 px-8 rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-semibold text-lg shadow-xl shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300 flex items-center justify-center space-x-2 mx-auto group"
+              onClick={()=>router.push('/contact')}
             >
               <span>Get Started Today</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />

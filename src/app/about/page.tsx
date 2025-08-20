@@ -20,9 +20,12 @@ import {
   Briefcase
 } from 'lucide-react';
 
+import { useRouter } from 'next/navigation';
+
 const About = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [clientFocus, setClientFocus] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     setIsMounted(true);
@@ -646,6 +649,7 @@ const About = () => {
                 className="group relative px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl font-bold text-lg overflow-hidden shadow-xl shadow-purple-500/25"
                 whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(168, 85, 247, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
+                onClick={()=>router.push('/contact')}
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400"

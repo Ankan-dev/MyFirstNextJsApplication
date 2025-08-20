@@ -20,10 +20,11 @@ import {
   Settings,
   Zap
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const SaasDevPricingPage = () => {
   const [isMounted, setIsMounted] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -320,6 +321,7 @@ const SaasDevPricingPage = () => {
                   className="group relative px-10 py-4 bg-gradient-to-r from-orange-600 to-amber-600 rounded-2xl font-bold text-lg overflow-hidden shadow-xl shadow-orange-500/25"
                   whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(251, 146, 60, 0.4)" }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={()=>router.push('/schedule')}
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-orange-400 to-amber-400"
@@ -328,7 +330,7 @@ const SaasDevPricingPage = () => {
                     transition={{ duration: 0.3 }}
                   />
                   <span className="relative z-10 flex items-center gap-2">
-                    Start With a Free Quote
+                    Schedule a Free Discovery Call
                     <motion.div
                       animate={isMounted ? { x: [0, 5, 0] } : {}}
                       transition={{ duration: 1.5, repeat: Infinity }}

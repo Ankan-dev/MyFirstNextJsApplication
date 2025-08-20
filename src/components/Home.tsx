@@ -3,9 +3,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code,  Rocket, Shield, CheckCircle, Award, Clock, Target,  Brain, Smartphone, Briefcase } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const Home = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const router = useRouter();
+
+  function Navigate(route:string){
+    router.push(`/${route}`)
+  }
 
   useEffect(() => {
     setIsMounted(true);
@@ -213,13 +219,15 @@ const Home = () => {
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <motion.button
-              className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl font-semibold text-lg overflow-hidden shadow-xl shadow-purple-500/25"
+              className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl font-semibold text-lg overflow-hidden shadow-xl shadow-purple-500/25 cursor-pointer"
               whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(168, 85, 247, 0.4)" }}
               whileTap={{ scale: 0.95 }}
+              onClick={()=>Navigate("contact")}
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 initial={false}
+                
               />
               <span className="relative z-10 flex items-center gap-2">
                 Let&apos;s Build Together
@@ -228,9 +236,10 @@ const Home = () => {
             </motion.button>
 
             <motion.button
-              className="px-8 py-4 border border-gray-700 hover:border-purple-400 rounded-2xl font-semibold text-lg backdrop-blur-xl bg-white/5 transition-all duration-300"
+              className="px-8 py-4 border border-gray-700 hover:border-purple-400 rounded-2xl font-semibold text-lg backdrop-blur-xl bg-white/5 transition-all duration-300 cursor-pointer"
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
               whileTap={{ scale: 0.95 }}
+               onClick={()=>Navigate("services")}
             >
               View Our Capabilities
             </motion.button>
@@ -510,6 +519,7 @@ const Home = () => {
                   className="group relative px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl font-bold text-lg overflow-hidden shadow-xl shadow-purple-500/25"
                   whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(168, 85, 247, 0.4)" }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={()=>Navigate("contact")}
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400"
@@ -528,13 +538,7 @@ const Home = () => {
                   </span>
                 </motion.button>
                 
-                <motion.button
-                  className="px-10 py-4 border border-gray-600 hover:border-purple-400 rounded-2xl font-bold text-lg backdrop-blur-xl bg-white/5 hover:bg-white/10 transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Get a Quote
-                </motion.button>
+                
               </div>
 
               <div className="flex items-center justify-center gap-6 text-sm text-gray-400">
