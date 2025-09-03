@@ -45,10 +45,10 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: 'Facebook', icon: <FaFacebook className="w-5 h-5" />, href: '#' },
-    { name: 'Instagram', icon: <FaInstagram className="w-5 h-5" />, href: '#' },
-    { name: 'LinkedIn', icon: <FaLinkedin className="w-5 h-5" />, href: '#' },
-    { name: 'X', icon: <FaXTwitter className="w-5 h-5" />, href: '#' },
+    { name: 'Facebook', icon: <FaFacebook className="w-5 h-5" />, href: 'https://www.facebook.com/profile.php?id=61580127697709' },
+    { name: 'Instagram', icon: <FaInstagram className="w-5 h-5" />, href: 'https://www.instagram.com/vironexdigital/' },
+    { name: 'LinkedIn', icon: <FaLinkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/vironex-digital-57a765377/' },
+    { name: 'X', icon: <FaXTwitter className="w-5 h-5" />, href: 'https://x.com/Vironex_Digital' },
   ];
 
   return (
@@ -199,16 +199,6 @@ const Footer = () => {
                     <div className="text-gray-400 text-sm">Email</div>
                     <a href="mailto:hello@vironex.dev" className="text-white hover:text-purple-400 transition-colors duration-300">
                       support@vironexdigital.com
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3">
-                  <Phone className="w-5 h-5 text-purple-400 mt-0.5" />
-                  <div>
-                    <div className="text-gray-400 text-sm">Phone</div>
-                    <a href="tel:+1234567890" className="text-white hover:text-purple-400 transition-colors duration-300">
-                      +1 (234) 567-890
                     </a>
                   </div>
                 </div>

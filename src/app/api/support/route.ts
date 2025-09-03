@@ -1,8 +1,8 @@
 import { NextRequest,NextResponse } from "next/server";
 import connectToDatabase from "@/lib/DbConnect";
 import SupportTicketModel from "@/models/SupportTicketModel";
-import { ISupportTicket } from "@/models/SupportTicketModel";
 import {sendMessageEmailToAdmins} from '@/services/SendTicketMessageMail'
+import { error } from "console";
 
 interface data {
     Name: string;
@@ -18,6 +18,7 @@ export async function POST (req:NextRequest): Promise<NextResponse>{
     try {
         const { Name, email, company, subject, message }:data = await req.json();
 
+
          if(!Name || !email || !company || !subject || !message){
             return NextResponse.json({error:"All fields are required"}, {status:400});
         }
@@ -30,7 +31,12 @@ export async function POST (req:NextRequest): Promise<NextResponse>{
             message,
         })
 
+        console.log(newTicked)
         const savedTicket = await newTicked.save();
+        
+        if(!savedTicket){
+            return NextResponse.json({error:"Failded to save the ticked"},{status:500})
+        }
 
         if(!savedTicket){
             return NextResponse.json({error:"Failed to create support ticket"}, {status:500});
