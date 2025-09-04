@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.vironexdigital.com
+
+# Sitemaps
+Sitemap: https://www.vironexdigital.com/sitemap.xml
